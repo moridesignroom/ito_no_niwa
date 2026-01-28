@@ -1,0 +1,1332 @@
+@use "mixin" as m;
+
+/* * {
+    border: 1px solid red;
+} */
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #F5F5F5;
+    font-family: "Yu Mincho", "YuMincho", "MS PMincho", serif;
+    font-size: 1.6rem;
+    color: #043139;
+}
+
+a {
+    text-decoration: none;
+    color: #043139;
+    display: inline-block;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-ui {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+// ---------------------------- common ----------------------------
+
+.sp-br {
+    display: none;
+
+    @include m.sp {
+        display: inline;
+    }
+}
+
+.ssp-br {
+    display: none;
+
+    @include m.ssp {
+        display: inline;
+    }
+}
+
+// ---------- tab/sp header ----------// 
+
+header {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    background-color: #104F59;
+    height: 100px;
+    width: 100%;
+
+    @include m.tab {
+        display: block;
+    }
+
+    @include m.sp {
+        height: 64px;
+    }
+
+    &.open {
+        .label::after {
+            position: absolute;
+            content: 'close';
+        }
+
+        .toggle_btn .hex-svg .h1 {
+            transform: rotate(212deg);
+            transform-origin: inherit;
+        }
+
+        .hamburger-menu {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .menu-mask {
+            display: block;
+            opacity: 1;
+        }
+    }
+}
+
+.flex-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding-inline: 24px;
+
+    .header-logo {
+        width: 126px;
+        height: auto;
+
+        @include m.sp {
+            width: 75px;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.toggle_btn {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+
+    @include m.sp {
+        width: 64px;
+        height: 64px;
+    }
+
+    .hex-svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+
+        .hex {
+            fill: none;
+            stroke: #c19554;
+            stroke-width: 3;
+            transform-origin: center;
+            transition: transform 1s ease;
+        }
+
+        .h1 {
+            transform: rotate(0deg);
+            transform-origin: inherit;
+        }
+
+        .h2 {
+            transform: rotate(-32deg);
+            transform-origin: inherit;
+        }
+    }
+}
+
+.header-menu {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, serif;
+    color: #c19554;
+    font-size: 1.6rem;
+    pointer-events: none;
+
+    @include m.sp {
+        font-size: 1.4rem;
+    }
+
+    &::after {
+        position: absolute;
+        content: 'menu';
+    }
+}
+
+.hamburger-menu {
+    // left: -100%;
+    transform: translateX(-100%);
+    position: absolute;
+    opacity: 0;
+    width: 320px;
+    height: 100vh;
+    background-color: #F5F5F5;
+    transition: 0.8s ease-out 0.15s,
+        opacity 0.8s ease-out 0.15s;
+    padding: 48px 32px;
+
+    &-item {
+        margin-bottom: 40px;
+
+        &:active {
+            transform: scale(0.8);
+            transition: transform 0.4s;
+        }
+
+
+        a {
+            display: flex;
+            color: #104F59;
+            font-size: 1.4rem;
+            font-weight: 500;
+            gap: 40px;
+        }
+
+        span {
+            display: block;
+        }
+
+        .en {
+            width: 64px;
+            text-align: right;
+            font-family: "orpheuspro";
+            font-weight: 600;
+        }
+
+        .ja {
+            position: relative;
+            // width: 65%;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: #104F59;
+                top: 50%;
+                transform: translateX(-50%);
+                height: 1px;
+                width: 8px;
+            }
+
+            &::before {
+                left: -6px;
+            }
+
+            &::after {
+                right: -14px;
+            }
+        }
+    }
+}
+
+.menu-mask {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255, 255, 255, 0.8);
+    transition: opacity 0.8s ease;
+    z-index: 90;
+}
+
+
+// ----------main-visual header用余白 ----------// 
+
+.main-visual-container {
+    @include m.tab {
+        padding-top: 100px;
+    }
+
+    @include m.sp {
+        padding-top: 64px;
+    }
+}
+
+
+// ---------- sidebar ----------// 
+
+.g-navi {
+    position: fixed;
+    top: 8px;
+    right: 0;
+    z-index: 100;
+
+    @include m.tab {
+        display: none;
+    }
+
+    @include m.sp {
+        display: none;
+    }
+}
+
+.tab-menu {
+
+    & .en {
+        font-family: "orpheuspro";
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+
+    &-list {
+        position: relative;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: stretch; // 両方の高さを一致させるポイント
+        height: 87.5px;
+
+    }
+
+    &-item {
+        background-color: #104F59;
+        color: #C19554;
+        writing-mode: vertical-rl;
+        border-inline: solid 1px #C19554;
+        border-block: solid 2px #C19554;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        text-align: center;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        padding: 4px;
+    }
+
+    &-list:last-child {
+        .tab-menu-item {
+            border-bottom: solid 2px #C19554;
+        }
+    }
+}
+
+.hover-list {
+    position: absolute;
+    opacity: 0;
+    right: 32%;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    display: flex; // ← 子の高さを伸ばす
+    align-items: stretch; // ← 子要素を親の高さに合わせる
+    pointer-events: auto;
+    transition: 0.3s ease;
+}
+
+.hover-item {
+    display: inline-flex; // ✅ inline要素として幅を中身に合わせる
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap; // ✅ 改行を禁止
+    background-color: #104F59;
+    color: #C19554;
+    border: solid 2px #C19554;
+    border-right: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 24px 40px;
+    line-height: 1.5;
+    min-height: 100%; // .tab-menu-item の高さに合わせる
+    // transition: background-color 0.3s ease, color 0.3s ease;
+    transition: 0.3s ease;
+
+    .ja {
+        position: relative;
+        font-size: 1.4rem;
+    }
+
+    .ja::before,
+    .ja::after {
+        position: absolute;
+        content: '';
+        background-color: #C19554;
+        top: 50%;
+        width: 10px;
+        height: 0.5px;
+    }
+
+    .ja::before {
+        left: -1.5rem;
+    }
+
+    .ja::after {
+        right: -1.5rem;
+    }
+
+}
+
+.tab-menu-list:hover .hover-list {
+    opacity: 1;
+    right: 0;
+}
+
+.to-top {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    z-index: 80;
+    bottom: 10%;
+    right: 24px;
+
+    @include m.tab {
+        right: 8px;
+    }
+
+    .bird-wrap {
+        position: relative;
+
+        img {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .normal {
+            width: 75px;
+            transition: opacity 0.6s ease;
+        }
+
+        .hover {
+            position: absolute;
+            opacity: 0;
+            inset: 0;
+            transform: scale(1);
+            transition: all 0.6s ease;
+        }
+
+    }
+
+    .circle {
+        position: absolute;
+        border: solid 2.5px #C19554;
+        background-color: #104F59;
+        border-radius: 50%;
+        top: 70px;
+        height: 64px;
+        transform: scale(1) rotateY(0deg);
+        transform-style: preserve-3d; // 👈 子要素も3D空間に参加
+        transition:
+            transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+            opacity 0.6s ease,
+            top 0.6s ease,
+            right 0.6s ease;
+        width: 64px;
+        padding: 8px;
+
+        .arrow,
+        p {
+            backface-visibility: hidden; // 👈 裏側非表示
+            transition: transform 0.8s ease;
+        }
+
+        .arrow {
+            position: absolute;
+            display: inline-block;
+            width: 2px;
+            height: 48px;
+            right: 50%;
+            top: 50%;
+            transform: translateY(-48%);
+            background-color: #C19554;
+
+        }
+
+        .arrow::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 2px;
+            // border-radius: 9999px;
+            background-color: #C19554;
+            transform: rotate(-50deg);
+            transform-origin: calc(100% - 2px) 50%;
+        }
+
+        .arrow::after {
+            content: "";
+            position: absolute;
+            top: -3px;
+            /* 棒の上端より少し上 */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 2px solid transparent;
+            border-bottom: 5px solid #C19554;
+            /* 上向きの先端 */
+        }
+
+        p {
+            position: absolute;
+            color: #C19554;
+            writing-mode: vertical-rl;
+            font-size: 1.4rem;
+            font-weight: 600;
+            font-family: "orpheuspro";
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    &:hover {
+        .bird-wrap {
+            .hover {
+                opacity: 1;
+                transform: scale(1.3) translate(6%, 2%);
+            }
+
+            .normal {
+                opacity: 0;
+            }
+        }
+
+        .circle {
+            opacity: 1;
+            transform: scale(1) rotateY(360deg);
+        }
+    }
+
+    &.active {
+        .bird-wrap {
+            .hover {
+                opacity: 1;
+                transform: scale(1.3) translate(6%, 2%);
+            }
+
+            .normal {
+                opacity: 0;
+            }
+        }
+
+        .circle {
+            opacity: 1;
+            transform: scale(1) rotateY(360deg);
+        }
+    }
+}
+
+
+// ---------- footer ----------
+footer {
+    position: relative;
+    background-color: #104F59;
+    height: 140px;
+    margin-top: 120px;
+
+    @include m.tab {
+        height: 100px;
+    }
+
+    @include m.sp {
+        height: 64px;
+    }
+
+    .footer-container {
+        height: 100%;
+        margin-inline: auto;
+        padding-inline: 24px;
+
+        @include m.tab {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            padding-top: 32px;
+        }
+
+        @include m.sp {
+            padding-top: 15px;
+        }
+    }
+
+    .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 112px;
+
+        @include m.tab {
+            height: 82%;
+        }
+
+        // @include m.sp {
+        //     height: 34px;
+        // }
+
+        .sns-link {
+            display: flex;
+            align-items: center;
+            height: 55%;
+            gap: 24px;
+
+            @include m.tab {
+                height: 100%;
+                margin-bottom: 24px;
+            }
+
+            a,
+            img {
+                height: 100%;
+            }
+        }
+
+        .footer-logo {
+            height: 100%;
+            width: auto;
+
+            @include m.tab {
+                display: none;
+            }
+        }
+    }
+
+    p {
+        color: #C19554;
+        font-size: 1.4rem;
+    }
+}
+
+
+// ---------- section ----------
+
+section {
+    padding-block: 120px 40px;
+}
+
+.container {
+    max-width: 1000px;
+    // max-width: 832px;
+    margin-inline: auto;
+    // padding-inline: 16px;
+}
+
+
+// ---------- section title----------
+
+.title {
+    position: relative;
+    text-align: center;
+    height: 108px;
+    max-width: 640px;
+    margin: 0 auto 64px;
+
+    .en {
+        position: absolute;
+        font-family: "orpheuspro";
+        font-weight: 400;
+        font-size: 9.6rem;
+        color: rgba(193, 149, 84, 0.4);
+        bottom: 0;
+        transform: translateY(13px);
+
+        @include m.sp {
+            font-size: 4.8rem;
+        }
+
+        &.left {
+            left: 24px;
+
+            @include m.sp {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        &.right {
+            right: 0;
+
+            @include m.sp {
+                right: 50%;
+                transform: translateX(50%);
+            }
+        }
+    }
+
+    .ja {
+        position: absolute;
+        font-size: 2.4rem;
+        color: #104F59;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @include m.sp {
+            font-size: 1.2rem;
+            bottom: -1.2rem;
+        }
+    }
+
+    .ja::before,
+    .ja::after {
+        position: absolute;
+        display: inline-block;
+        content: '';
+        background-color: #104F59;
+        top: 50%;
+        width: 20px;
+        height: 1px;
+
+        @include m.sp {
+            width: 10px;
+        }
+    }
+
+    .ja::before {
+        left: -40px;
+
+        @include m.sp {
+            left: -16px;
+        }
+    }
+
+    .ja::after {
+        right: -40px;
+
+        @include m.sp {
+            right: -16px;
+        }
+    }
+}
+
+
+// ---------- green see more btn ----------
+
+.green-btn {
+    position: relative;
+    background-color: #104F59;
+    width: 208px;
+    height: 53px;
+    box-shadow: 8px 8px #C19554;
+    margin-block: 40px 8px;
+    margin-inline: auto;
+
+    .see-more-text {
+        position: relative; // ← z-indexを効かせるために必要
+        z-index: 2;
+        color: #C19554;
+        font-family: "orpheuspro";
+        font-weight: 400;
+        font-size: 2.2rem;
+        margin-top: 16px;
+        margin-left: 48px;
+    }
+
+    .arrow {
+        position: absolute;
+        display: inline-block;
+        z-index: 2;
+        width: 12px;
+        height: 13px;
+        right: 24px;
+        top: 24px;
+    }
+
+    .arrow::before,
+    .arrow::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 13px;
+        height: 1.5px;
+        background-color: #c19554;
+        transform-origin: right center; // ★右端を回転の基点に
+        transition: background-color 0.5s;
+    }
+
+    .arrow::before {
+        transform: translateY(-50%) rotate(25deg);
+    }
+
+    .arrow::after {
+        transform: translateY(-50%) rotate(-25deg);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: 1; // ← 背景用は下に
+        inset: 0;
+        background: linear-gradient(70deg, #104f59 0%, #197c8c 40%, #f2dad5 105%);
+        transition: opacity 0.5s;
+        opacity: 0;
+    }
+
+    &:hover::after {
+        opacity: 1;
+    }
+
+    &.active::after {
+        opacity: 1;
+    }
+
+}
+
+
+
+// ---------------------------- about introduce----------------------------
+
+.introduce {
+    position: relative;
+
+
+    .artist {
+        // width: 800px;
+        width: 100%;
+        border-radius: 20px;
+
+        @include m.tab {
+            border-radius: 0;
+        }
+    }
+
+    .introduce-text {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        text-align: right;
+        color: #F2DAD5;
+        text-shadow: -1px 3px 8px #060201;
+        margin-right: 40px;
+        margin-bottom: 16px;
+
+        @include m.sp {
+            font-size: 1.4rem;
+            margin-right: 8px;
+        }
+
+        @include m.ssp {
+            font-size: 1.2rem;
+        }
+
+        .sp-br,
+        .ssp-br {
+            display: none;
+        }
+
+        .sp-br {
+            @include m.sp {
+                display: inline;
+            }
+        }
+
+        // .ssp-br {
+        //     @include m.ssp {
+        //         display: inline;
+        //     }
+        // }
+
+    }
+}
+
+
+// ---------------------------- blog ----------------------------
+
+.blog-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    gap: 64px;
+
+    @include m.tab {
+        gap: 48px;
+        padding-inline: 36px;
+    }
+
+    @include m.ssp {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    a {
+        display: block;
+    }
+
+    article {
+        position: relative;
+        z-index: 0;
+        // ↑ 背景色をつけるために必要
+        height: auto;
+        transition: transform 0.25s ease-out;
+        padding: 16px 16px 32px;
+
+        @include m.sp {
+            padding-inline: 8px;
+        }
+
+        &:hover {
+            transform: translateY(-4px);
+
+            &::before {
+                box-shadow: 2px 2px 5px #104F59;
+            }
+        }
+
+        &::before,
+        &::after {
+            pointer-events: none;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            inset: -8px;
+            background-color: #fefefe;
+            border: solid 1px #104F59;
+            transition: transform 0.25s ease-out
+        }
+
+
+        &::after {
+            position: absolute;
+            z-index: 1;
+            // ↑ 背景色をつけるために必要
+            content: '';
+            border: solid 3px #104F59;
+            inset: 0;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            font-weight: normal;
+            margin: 0 0 8px;
+            padding: 0;
+
+            @include m.sp {
+                text-align: center;
+            }
+        }
+
+        .time {
+            font-size: 14px;
+
+            @include m.sp {
+                position: absolute;
+                right: 16px;
+            }
+        }
+    }
+}
+
+
+// ---------------------------- subpage ----------------------------
+
+// ---------- subpage-top ----------
+
+.subpage-top {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+    @include m.tab {
+        height: auto;
+
+        &::after {
+            content: '';
+            display: block;
+            height: 100vh;
+            background-size: cover;
+        }
+    }
+
+    .subpage-title {
+        position: sticky;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #C89A56;
+
+        @include m.tab {
+            position: static;
+            color: rgba(193, 149, 84, 0.4);
+            padding-block: 24px;
+        }
+
+        .en {
+            font-family: "orpheuspro";
+            font-weight: 400;
+            font-size: 9.6rem;
+
+            @include m.sp {
+                font-size: 6.4rem;
+            }
+        }
+
+        .ja {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            font-size: 2rem;
+            letter-spacing: 5px;
+
+            @include m.tab {
+                bottom: 10px;
+                color: #104F59;
+            }
+
+            @include m.sp {
+                font-size: 1.4rem;
+                letter-spacing: 2px;
+            }
+        }
+
+        .ja::before,
+        .ja::after {
+            position: absolute;
+            display: inline-block;
+            content: '';
+            background-color: #C89A56;
+            top: 50%;
+            width: 24px;
+            height: 1px;
+
+            @include m.tab {
+                background-color: #104F59;
+            }
+
+            @include m.sp {
+                width: 16px;
+            }
+        }
+
+        .ja::before {
+            left: -32px;
+
+            @include m.sp {
+                left: -24px;
+            }
+        }
+
+        .ja::after {
+            right: -32px;
+
+            @include m.sp {
+                right: -24px;
+            }
+        }
+
+    }
+}
+
+
+// ---------- section-title-line ----------
+
+.section-title-line {
+    position: relative;
+    width: 326px;
+    margin: 0 auto 48px;
+
+    @include m.ssp {
+        padding-inline: 16px;
+    }
+
+    h2 {
+        position: absolute;
+        font-family: "orpheuspro";
+        font-weight: 400;
+        font-size: 2.8rem;
+        color: #104F59;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @include m.sp {
+            font-size: 2.4rem;
+        }
+    }
+}
+
+
+// ---------- image layout ----------
+
+.two-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    max-width: 800px;
+    gap: 8%;
+    margin-inline: auto;
+
+    @include m.tab {
+        max-width: none;
+        gap: 24px;
+        padding-inline: 32px;
+    }
+
+    @include m.sp {
+        gap: 8px;
+        padding-inline: 16px;
+    }
+
+    @include m.ssp {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+
+.three-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    justify-content: center;
+    max-width: 1128px;
+    margin-inline: auto;
+
+    @include m.tab {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: none;
+        padding-inline: 32px;
+    }
+
+    @include m.sp {
+        gap: 24px 8px;
+        padding-inline: 16px;
+    }
+
+    @include m.ssp {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+// ---------- 商品画像 詳細表示 ----------
+.photo {
+    position: relative;
+    width: 100%;
+    height: auto;
+    // width: 360px;
+    // height: 400px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    &:hover .mask {
+        opacity: 1;
+        transition: all 0.5s ease-in-out;
+    }
+}
+
+.mask {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+
+    .description {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -76%);
+        width: 100%;
+        text-align: center;
+
+        h3,
+        p {
+            font-size: 2rem;
+        }
+
+        h3 {
+            margin-bottom: 72px;
+        }
+    }
+
+    .btn {
+        position: absolute;
+        bottom: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: solid 1px #104F59;
+        border-radius: 30px;
+        overflow: hidden;
+        width: 180px;
+        transition: background-image 0.5s ease;
+        padding: 8px 16px;
+
+        p,
+        .arrow {
+            position: relative;
+            z-index: 1;
+        }
+
+        p {
+            font-size: 2rem;
+        }
+
+        .arrow {
+            position: absolute;
+            display: inline-block;
+            z-index: 2;
+            width: 12px;
+            height: 13px;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .arrow::before,
+        .arrow::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 13px;
+            height: 1px;
+            background-color: #043139;
+            transform-origin: right center; // ★右端を回転の基点に
+        }
+
+        .arrow::before {
+            transform: translateY(-50%) rotate(25deg);
+        }
+
+        .arrow::after {
+            transform: translateY(-50%) rotate(-25deg);
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(at 34% 41%, #F8E2DD, transparent),
+                radial-gradient(at 28% 0%, #FEFEFE, transparent),
+                radial-gradient(at 55% 66%, #FEFEFE, transparent),
+                radial-gradient(at 73% 56%, #197c8c, transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 0;
+        }
+
+        &:hover::before {
+            opacity: 1;
+        }
+    }
+}
+
+
+// ---------- subpage btn ----------
+
+.subpage-btn {
+    position: relative;
+    display: block;
+    border: solid 1px #104F59;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 334px;
+    transition: background-image 0.5s ease;
+    margin-inline: auto;
+    padding: 8px 24px;
+
+    @include m.ssp {
+        width: 280px;
+    }
+
+    p,
+    .arrow {
+        position: relative;
+        z-index: 1;
+    }
+
+    p {
+        font-size: 2rem;
+
+        @include m.sp {
+            font-size: 1.6rem;
+        }
+
+        @include m.ssp {
+            font-size: 1.4rem;
+        }
+    }
+
+    .arrow {
+        position: absolute;
+        display: inline-block;
+        z-index: 2;
+        width: 12px;
+        height: 13px;
+        right: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .arrow::before,
+    .arrow::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 13px;
+        height: 1px;
+        background-color: #043139;
+        transform-origin: right center; // ★右端を回転の基点に
+    }
+
+    .arrow::before {
+        transform: translateY(-50%) rotate(25deg);
+    }
+
+    .arrow::after {
+        transform: translateY(-50%) rotate(-25deg);
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+            radial-gradient(at 34% 41%, #F8E2DD, transparent),
+            radial-gradient(at 28% 0%, #FEFEFE, transparent),
+            radial-gradient(at 55% 66%, #FEFEFE, transparent),
+            radial-gradient(at 73% 56%, #197c8c, transparent);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: 0;
+    }
+
+    &:hover::before {
+        opacity: 1;
+    }
+}

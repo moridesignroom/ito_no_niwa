@@ -1,0 +1,27 @@
+@use "mixin" as m;
+
+// ---------------------------- works-page-top ----------------------------
+
+.subpage-top {
+    &.works-page {
+        background-image: url(../img/works-top.jpg);
+
+        @include m.tab {
+            background-image: none;
+
+            &::after {
+                background-image: url(../img/works-top.jpg);
+            }
+        }
+
+        .subpage-title {
+            top: 5vh;
+            margin-right: 52vw;
+            margin-left: auto;
+
+            @include m.tab {
+                margin-right: auto;
+            }
+        }
+    }
+}

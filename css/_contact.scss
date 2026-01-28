@@ -1,0 +1,598 @@
+@use "mixin" as m;
+
+// ---------------------------- blog-page-top ----------------------------
+
+.contact-main {
+    @include m.tab {
+        padding-bottom: 48px;
+    }
+
+    @include m.sp {
+        padding-bottom: 0;
+    }
+}
+
+.subpage-top {
+    &.contact-page {
+        height: 400px;
+        background-image: url(../img/contact-top.jpg);
+        background-position: bottom;
+        background-attachment: scroll;
+
+        @include m.tab {
+            background-image: none;
+
+            &::after {
+                background-image: url(../img/contact-top.jpg);
+                background-position: center;
+
+                @include m.tab {
+                    height: 254px;
+                }
+            }
+        }
+
+        .subpage-title {
+            position: absolute;
+            // transform: translate(-50%, -50%);
+            color: #104F59;
+            top: 155px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+
+            @include m.tab {
+                position: static;
+                color: rgba(193, 149, 84, 0.4);
+            }
+
+
+            .en {
+                text-shadow: -2px 3px 4px #F4F5F0;
+            }
+
+            .ja {
+                bottom: -11px;
+                text-shadow: -1px 2px 2px #F4F5F0;
+
+                @include m.tab {
+                    bottom: 0;
+                }
+
+                &::before,
+                &::after {
+                    background-color: #104F59;
+                }
+            }
+        }
+    }
+}
+
+
+// ---------------------------- contact bg ----------------------------
+
+.contact-bg {
+    position: relative;
+    background-image: url(../img/contact-bg.png);
+    background-size: cover;
+
+    &::before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        top: 850px;
+        height: 600px;
+        background: #104F59;
+
+        @include m.tab {
+            top: 936px;
+            height: 580px;
+        }
+
+        @include m.sp {
+            top: 674px;
+            height: 460px;
+        }
+
+    }
+}
+
+
+// ---------------------------- contactform ----------------------------
+
+.contactform-section {
+    position: relative;
+    padding-top: 260px;
+
+    @include m.tab {
+        padding-bottom: 190px;
+    }
+
+    @include m.sp {
+        padding-block: 146px 0;
+    }
+
+    .contactform-title {
+        position: absolute;
+        top: -56px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        font-size: 2rem;
+        z-index: 20;
+
+        @include m.sp {
+            top: -16px;
+            font-size: 1.4rem;
+        }
+    }
+}
+
+.contactframe {
+    position: relative;
+    text-align: center;
+    // 四角 細枠
+    border: solid 1px #104F59;
+    background: #f5f5f5;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 902px;
+    height: 888px;
+
+    @include m.tab {
+        width: 768px;
+    }
+
+    @include m.sp {
+        border: none;
+        background: none;
+        width: 75vw;
+    }
+
+
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+    }
+
+    // 上半円の細枠
+    &::before {
+        top: -168px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 769px;
+        height: 489px;
+        border: 1px solid #104F59;
+        border-radius: 50%;
+        background: #f5f5f5;
+
+        @include m.tab {
+            top: -139px;
+            width: 667px;
+            height: 442px;
+        }
+
+        @include m.sp {
+            display: none;
+        }
+
+    }
+}
+
+.frame {
+    position: absolute;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+
+    // 外枠の白背景
+    &.outer {
+        top: 251px;
+        width: calc(902px + 16px);
+        height: calc(888px + 16px);
+        background: #f5f5f5;
+
+        @include m.tab {
+            width: 780px;
+        }
+
+        @include m.sp {
+            top: 98px;
+            width: calc(75vw + 16px);
+            height: calc(890px + 16px);
+            border: solid 1px #104F59;
+        }
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: '';
+            left: 50%;
+            transform: translateX(-50%);
+            width: 798px;
+            height: 530px;
+            border-radius: 50%;
+            background: #f5f5f5;
+
+            @include m.tab {
+                width: 680px;
+                height: 445px;
+            }
+
+            @include m.sp {
+                display: none;
+            }
+        }
+
+        &::before {
+            top: -167px;
+
+            @include m.tab {
+                top: -135px;
+            }
+
+            @include m.sp {
+                display: none;
+            }
+        }
+
+        &::after {
+            bottom: -167px;
+
+            @include m.sp {
+                bottom: -140px;
+            }
+        }
+
+    }
+
+    &.top {
+        // 上奥 境界隠し
+        top: 0;
+        height: 16px;
+        width: 840px;
+        background: #f5f5f5;
+
+        @include m.tab {
+            width: 650px;
+        }
+
+        @include m.sp {
+            display: none;
+        }
+
+
+        // 上半円の太枠
+        &::before {
+            position: absolute;
+            content: '';
+            top: -144px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 734px;
+            height: 472px;
+            border: 3px solid #104F59;
+            border-radius: 50%;
+            background: #f5f5f5;
+
+            @include m.tab {
+                top: -121px;
+                width: 640px;
+                height: 442px;
+            }
+
+            @include m.sp {
+                display: none;
+            }
+        }
+    }
+
+    &.bottom {
+        // 下半円 細枠
+        bottom: -168px;
+        width: 769px;
+        height: 489px;
+        border: 1px solid #104F59;
+        border-radius: 50%;
+        background: #f5f5f5;
+
+        @include m.tab {
+            width: 667px;
+            height: 442px;
+        }
+
+        @include m.sp {
+            display: none;
+        }
+
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: '';
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        // 下奥 境界隠し
+        &::before {
+            bottom: 168px;
+            height: 16px;
+            width: 840px;
+            background: #f5f5f5;
+
+            @include m.tab {
+                bottom: 167px;
+                width: 700px;
+            }
+
+            @include m.sp {
+                display: none;
+            }
+        }
+
+        // 下半円 太枠
+        &::after {
+            bottom: 24px;
+            width: 734px;
+            height: 472px;
+            border: 3px solid #104F59;
+            border-radius: 50%;
+            background: #f5f5f5;
+
+            @include m.tab {
+                width: 640px;
+                height: 442px;
+            }
+
+            @include m.sp {
+                display: none;
+            }
+        }
+
+    }
+}
+
+form {
+    // 四角 太枠
+    position: absolute;
+    width: 862px;
+    height: 856px;
+    top: 16px;
+    left: 20px;
+    border: solid 3px #104F59;
+    background: #f5f5f5;
+
+    @include m.tab {
+        width: 732px;
+    }
+
+    @include m.sp {
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 75vw;
+        height: 890px;
+    }
+
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+        left: 50%;
+        height: 16px;
+        background: #f5f5f5;
+        border-radius: 10px;
+
+        @include m.sp {
+            transform: translateX(0);
+        }
+    }
+
+    // 上手前 境界隠し
+    &::before {
+        top: -5px;
+        transform: translateX(-347px);
+        width: 693px;
+
+        @include m.tab {
+            transform: translateX(-298px);
+            width: 589.5px;
+        }
+
+        @include m.sp {
+            display: none;
+        }
+    }
+
+    // 下手前 境界隠し
+    &::after {
+        bottom: -7px;
+        transform: translateX(-345px);
+        width: 688px;
+
+        @include m.tab {
+            transform: translateX(-307px);
+            width: 608.5px;
+        }
+
+        @include m.sp {
+            display: none;
+        }
+    }
+
+}
+
+.contactform-list {
+    display: grid;
+    grid-template-columns: 35% 1fr;
+    align-items: center;
+    gap: 32px;
+    padding: 80px 72px 80px 104px;
+
+    @include m.tab {
+        grid-template-columns: 1fr;
+        align-items: start;
+        padding: 56px 20px 40px;
+        gap: 4px;
+    }
+
+    @include m.sp {
+        padding: 96px 8px 40px;
+    }
+
+
+    .item-title {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        width: 100%;
+        gap: 24px;
+        letter-spacing: -0.2rem;
+        padding-right: 56px;
+
+        @include m.tab {
+            justify-content: left;
+            width: 100%;
+            padding-bottom: 8px;
+
+            &:not(:first-child),
+            &.align-top:not(:first-child) {
+                margin-top: 16px;
+            }
+        }
+
+        @include m.sp {
+            gap: 8px;
+        }
+
+        &.align-top {
+            align-self: start;
+            margin-top: 8px;
+        }
+
+        .label {
+            display: flex;
+            justify-content: center;
+            align-items: anchor-center;
+            width: 48px;
+            height: 32px;
+            border-radius: 10px;
+            font-size: 1.4rem;
+            font-family: Yu Gothic;
+            font-weight: bold;
+            letter-spacing: 0.1rem;
+            color: #f5f5f5;
+
+            @include m.sp {
+                height: 24px;
+            }
+
+            &.required {
+                background-color: #FF7328;
+            }
+
+            &.optional {
+                background-color: #838383;
+            }
+        }
+    }
+
+    .textarea-parent {
+        width: 100%;
+        border: solid 0.5px rgb(4, 49, 57, 0.6);
+    }
+
+    .message {
+        width: 100%;
+        height: auto;
+
+        textarea {
+            height: 240px;
+            width: 100%;
+            vertical-align: bottom;
+
+            @include m.sp {
+                height: 136px;
+            }
+        }
+    }
+
+    .input-field {
+        width: 100%;
+        border: solid 0.5px rgb(4, 49, 57, 0.6);
+        padding: 8px 16px;
+
+        @include m.tab {
+            padding-block: 4px;
+        }
+
+        input {
+            width: 100%;
+
+        }
+
+        input[type="text"] {
+            height: 1.6rem;
+        }
+
+        &.attachment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 120px;
+            padding: 0;
+
+            input[type="file"] {
+                display: block;
+                width: auto;
+                margin: 0 auto;
+
+                @include m.ssp {
+                    width: 132px;
+                }
+            }
+        }
+
+    }
+}
+
+.submit-button {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+input[type="submit"] {
+    z-index: 10;
+    font-size: 2rem;
+    font-family: Yu Gothic;
+    font-weight: bold;
+    color: #f5f5f5;
+    background-color: #FF7328;
+    border-radius: 10px;
+    width: 160px;
+    height: 36px;
+    margin-top: 40px;
+}
+
+// ---------------------------- footer ----------------------------
+
+.contact-page-footer {
+    margin-top: 255px;
+
+    @include m.tab {
+        margin-top: 100px;
+    }
+
+    &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 48px);
+        border-top: solid 1px #C79955;
+    }
+}

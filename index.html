@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>糸の庭</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/gft7lzl.css">
+</head>
+
+<body>
+    <header>
+        <div class="flex-box">
+            <div class="toggle_btn">
+                <svg viewBox="0 0 200 200" aria-hidden="true" class="hex-svg">
+                    <g transform="translate(100,100)">
+                        <polygon class="hex h1" points="0,-78 67,-39 67,39 0,78 -67,39 -67,-39" />
+                        <polygon class="hex h2" points="0,-78 67,-39 67,39 0,78 -67,39 -67,-39" />
+                    </g>
+                </svg>
+                <span class="header-menu"></span>
+            </div>
+            <a class="header-logo" href="index.html">
+                <picture>
+                    <source media="(max-width:800px)" srcset="img/header-logo-sp.png">
+                    <source media="(max-width: 1120px)" srcset="img/header-logo-tab.png">
+                    <img src="img/header-logo-tab.png" alt="サイトロゴ">
+                </picture>
+            </a>
+        </div>
+        <nav class="hamburger-menu">
+            <ul>
+                <li class="hamburger-menu-item">
+                    <a href="index.html">
+                        <span class="en">HOME</span>
+                        <span class="ja">はじまりの場所</span>
+                    </a>
+                </li>
+                <li class="hamburger-menu-item">
+                    <a href="works.html">
+                        <span class="en">WORKS</span>
+                        <span class="ja">庭の作品</span>
+                    </a>
+                </li>
+                <li class="hamburger-menu-item">
+                    <a href="order.html">
+                        <span class="en">ORDER</span>
+                        <span class="ja">オーダーのご案内</span>
+                    </a>
+                </li>
+                <li class="hamburger-menu-item">
+                    <a href="about.html">
+                        <span class="en">ABOUT</span>
+                        <span class="ja">糸の庭について</span>
+                    </a>
+                </li>
+                <li class="hamburger-menu-item">
+                    <a href="blog.html">
+                        <span class="en">BLOG</span>
+                        <span class="ja">糸の記録</span>
+                    </a>
+                </li>
+                <li class="hamburger-menu-item">
+                    <a href="contact.html">
+                        <span class="en">CONTACT</span>
+                        <span class="ja">ご連絡はこちらから</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="menu-mask"></div>
+    </header>
+
+    <nav class="g-navi">
+        <ul class="tab-menu">
+            <li class="tab-menu-list">
+                <div class="tab-menu-item">
+                    <span class="en">HOME</span>
+                </div>
+                <div class="hover-list">
+                    <a class="hover-item" href="index.html">
+                        <span class="en">HOME</span>
+                        <span class="ja">はじまりの場所</span>
+                    </a>
+                </div>
+            </li>
+            <li class="tab-menu-list">
+                <div class="tab-menu-item">
+                    <span class="en">WORKS</span>
+                </div>
+                <div class="hover-list">
+                    <a class="hover-item" href="works.html">
+                        <span class="en">WORKS</span>
+                        <span class="ja">庭の作品</span>
+                    </a>
+                </div>
+            </li>
+            <li class="tab-menu-list">
+                <div class="tab-menu-item">
+                    <span class="en">ORDER</span>
+                </div>
+                <div class="hover-list">
+                    <a class="hover-item" href="order.html">
+                        <span class="en">ORDER</span>
+                        <span class="ja">オーダーのご案内</span>
+                    </a>
+                </div>
+            </li>
+            <li class="tab-menu-list">
+                <div class="tab-menu-item">
+                    <span class="en">ABOUT</span>
+                </div>
+                <div class="hover-list">
+                    <a class="hover-item" href="about.html">
+                        <span class="en">ABOUT</span>
+                        <span class="ja">糸の庭について</span>
+                    </a>
+                </div>
+            </li>
+            <li class="tab-menu-list">
+                <div class="tab-menu-item">
+                    <span class="en">BLOG</span>
+                </div>
+                <div class="hover-list">
+                    <a class="hover-item" href="blog.html">
+                        <span class="en">BLOG</span>
+                        <span class="ja">糸の記録</span>
+                    </a>
+                </div>
+            </li>
+            <li class="tab-menu-list">
+                <div class="tab-menu-item">
+                    <span class="en">CONTACT</span>
+                </div>
+                <div class="hover-list">
+                    <a class="hover-item" href="contact.html">
+                        <span class="en">CONTACT</span>
+                        <span class="ja">ご連絡はこちらから</span>
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+    </nav>
+    <div class="to-top">
+        <div class="bird-wrap">
+            <img class="normal" src="img/bird1.png" alt="通常">
+            <img class="hover" src="img/bird2.png" alt="ホバー">
+        </div>
+        <a class="circle" href="#top">
+            <span class="arrow"></span>
+            <p>TOP</p>
+        </a>
+    </div>
+
+    <main>
+        <div class="main-visual-container">
+            <div class="index-top main-visual">
+                <img class="index-top-img" src="img/index-top.jpg" alt="トップ画像">
+                <h1 class="logo"><img src="img/logo.png" alt="ito no niwa"></h1>
+            </div>
+        </div>
+        <section class="works">
+            <h2 class="title">
+                <span class="en left" lang="en">WORKS</span>
+                <span class="ja" lang="ja">庭の作品たち</span>
+            </h2>
+            <ul class="slide-items">
+                <li>
+                    <a href="#"><img class="green-shadow" src="img/order01.jpg" alt="オーダー画像１"></a>
+                </li>
+                <li>
+                    <a href="#"><img class="pink-shadow" src="img/img02.jpg" alt="新作画像１"></a>
+                </li>
+                <li>
+                    <a href="#"><img class="green-shadow" src="img/img06.jpg" alt="新作画像２"></a>
+                </li>
+                <li>
+                    <a href="#"><img class="pink-shadow" src="img/order02.jpg" alt="オーダー画像２"></a>
+                </li>
+                <li class="duplication">
+                    <a href="#"><img class="green-shadow" src="img/order01.jpg" alt="オーダー画像１"></a>
+                </li>
+                <li class="duplication">
+                    <a href="#"><img class="pink-shadow" src="img/img02.jpg" alt="新作画像１"></a>
+                </li>
+                <li class="duplication">
+                    <a href="#"><img class="green-shadow" src="img/img06.jpg" alt="新作画像２"></a>
+                </li>
+                <li class="duplication">
+                    <a href="#"><img class="pink-shadow" src="img/order02.jpg" alt="オーダー画像２"></a>
+                </li>
+            </ul>
+            <div class="green-btn">
+                <a class="see-more-text" href="./works.html">see more</a>
+                <span class="arrow"></span>
+            </div>
+        </section>
+        <section class="container">
+            <h2 class="title">
+                <span class="en right" lang="en">ABOUT</span>
+                <span class="ja" lang="ja">糸の庭について</span>
+            </h2>
+            <div class="introduce">
+                <img class="artist" src="img/artist.jpg" srcset="
+                img/artist-sp.jpg 1000w,
+                img/artist-tab.jpg 1488w,
+                img/artist.jpg 2000w
+                " sizes="
+                (max-width: 1120px) 100vw,
+                1000px
+                " alt="刺繍作家">
+                <p class="introduce-text">
+                    手に取る人の心に、<br class="sp-br"> そっと寄り添う<br class="ssp-br">ような刺繍を。<br>
+                    ひと針ごとに、<br class="ssp-br">穏やかな時間と<br class="sp-br"> 小さな物語を<br class="ssp-br">込めています。<br>
+                    「ito no niwa」は、<br class="ssp-br">糸で紡ぐ静かな庭。<br>
+                    日々の中に、小さな癒しの風景を<br class="sp-br"> 届けられますように。
+                </p>
+            </div>
+            <div class="green-btn">
+                <a class="see-more-text" href="./about.html">see more</a>
+                <span class="arrow"></span>
+            </div>
+        </section>
+        <section class="container">
+            <h2 class="title">
+                <span class="en left" lang="en">BLOG</span>
+                <span class="ja" lang="ja">糸の記録</span>
+            </h2>
+            <div class="blog-wrapper">
+                <a href="./single.html">
+                    <article>
+                        <img src="img/blog01.jpg" alt="白い花の刺繍">
+                        <h3>冬のはじまり<br class="sp-br"> ― 白の中にひそむぬくもり</h3>
+                        <p class="time"><time datetime="2025-11-01">2025.11.01</time></p>
+                    </article>
+                </a>
+                <a href="./single.html">
+                    <article>
+                        <img src="img/blog02.jpg" alt="WEEKEND MARKET">
+                        <h3>WEEKEND MARKET<br class="sp-br">　出店のお知らせ</h3>
+                        <p class="time"><time datetime="2025-11-01">2025.11.01</time></p>
+                    </article>
+                </a>
+            </div>
+            <div class="green-btn blog">
+                <a class="see-more-text" href="./blog.html">see more</a>
+                <span class="arrow"></span>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-inner">
+                <div class="sns-link">
+                    <a href="#"><img class="img-ui" src="img/Instagram.png" alt="Instagram"></a>
+                    <a href="#"><img class="img-ui" src="img/threads.png" alt="threads"></a>
+                </div>
+                <img class="img-ui footer-logo" src="img/logo.png" alt="ロゴ画像">
+            </div>
+            <p>&copy;2025 ito no niwa</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

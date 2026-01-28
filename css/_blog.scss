@@ -1,0 +1,67 @@
+@use "mixin" as m;
+
+// ---------------------------- blog-page-top ----------------------------
+
+.subpage-top {
+    &.blog-page {
+        background-image: url(../img/blog-top.jpg);
+        background-position: center;
+
+        @include m.tab {
+            background-image: none;
+
+            &::after {
+                background-image: url(../img/blog-top.jpg);
+            }
+        }
+
+        .subpage-title {
+            position: absolute;
+            bottom: 2%;
+            // right: 7%;
+            margin-left: 75vw;
+            margin-right: auto;
+            text-shadow: 6px 8px 7px #261C12;
+
+            @include m.tab {
+                position: static;
+                color: rgba(193, 149, 84, 0.4);
+                text-shadow: none;
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+
+// ---------------------------- blog-bg ----------------------------
+
+.blog-bg {
+    position: relative;
+    padding-bottom: 16px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url(../img/blog-bg.jpg);
+        background-size: cover;
+
+
+    }
+
+    section {
+        margin-bottom: 400px;
+
+        @include m.sp {
+            margin-bottom: 300px;
+        }
+    }
+}
+
+
+// ---------------------------- blog-footer ----------------------------
+
+footer.blog-page {
+    margin-top: 0;
+}

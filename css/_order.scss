@@ -1,0 +1,379 @@
+@use "mixin" as m;
+
+// ---------------------------- subpage-top ----------------------------
+
+.subpage-top.order-page {
+    background-image: url(../img/order-top.jpg);
+    background-position: bottom;
+
+    @include m.tab {
+        background-image: none;
+
+        &::after {
+            background-image: url(../img/order-top.jpg);
+        }
+    }
+
+    .subpage-title {
+        flex-direction: row;
+        align-items: baseline;
+        color: #104F59;
+        text-shadow: 3px 3px 10px #94C7B1;
+        top: 3vh;
+        margin-right: auto;
+        margin-left: 10vw;
+
+        @include m.tab {
+            flex-direction: column;
+            align-items: center;
+            color: rgba(193, 149, 84, 0.4);
+            text-shadow: none;
+            margin-left: auto;
+        }
+
+        .ja {
+            margin-left: 4em;
+
+            @include m.tab {
+                margin-left: 0;
+            }
+
+            &::before,
+            &::after {
+                background-color: #104F59;
+            }
+        }
+    }
+
+    .decoration {
+        position: absolute;
+        background-color: rgb(255, 255, 255, 0.8);
+        top: 0;
+        right: 9%;
+        height: 100vh;
+        width: 321px;
+        text-align: center;
+
+        @include m.tab {
+            position: static;
+            height: auto;
+            width: auto;
+            background-color: #f5f5f5;
+
+            p {
+                font-size: 1.4rem;
+            }
+
+            .pc-br {
+                display: none;
+            }
+        }
+
+        .sub-title {
+            color: #104F59;
+            font-size: 2.8rem;
+            font-weight: 400;
+            margin-top: 55vh;
+            margin-bottom: 36px;
+
+            @include m.tab {
+                letter-spacing: 2px;
+                font-size: 1.8rem;
+                font-weight: 500;
+                margin-block: 32px 8px;
+            }
+        }
+    }
+}
+
+
+// ---------------------------- flow chart ----------------------------
+
+.flow-section {
+    position: relative;
+    max-width: 1184px;
+    height: auto;
+    margin: auto;
+    padding-bottom: 6.4rem;
+
+    @include m.tab {
+        max-width: 716px;
+        margin-inline: auto;
+        padding-inline: 24px;
+    }
+
+    @include m.ssp {
+        padding-inline: 16px;
+    }
+
+    .pc-bg {
+        position: absolute;
+        background-image: url(../img/order-damask-line.png);
+        background-size: cover;
+        width: 133px;
+        top: 12rem;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+
+        @include m.tab {
+            top: 297px;
+            bottom: 159px;
+            width: 100px;
+        }
+
+        @include m.sp {
+            top: 258px;
+        }
+
+        @include m.ssp {
+            top: 242px;
+        }
+    }
+}
+
+.order-page-title {
+    margin-inline: 24rem;
+    margin-bottom: 6rem;
+
+    @include m.tab {
+        text-align: center;
+        max-width: 616px;
+        margin-inline: auto;
+    }
+
+    .en {
+        display: block;
+        font-family: "orpheuspro";
+        font-weight: 400;
+        font-size: 9.6rem;
+        color: rgba(193, 149, 84, 0.4);
+
+        @include m.sp {
+            font-size: 6.4rem;
+        }
+
+        @include m.ssp {
+            font-size: 5rem;
+        }
+    }
+
+    .ja {
+        position: relative;
+        display: inline-block;
+        font-size: 2.4rem;
+        color: #104F59;
+        margin-left: 2em;
+
+        @include m.tab {
+            margin-left: 0;
+        }
+
+        @include m.sp {
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+        }
+
+        @include m.ssp {
+            font-size: 1.2rem;
+        }
+
+        &::before,
+        &::after {
+            position: absolute;
+            // display: inline-block;
+            content: '';
+            background-color: #104F59;
+            top: 50%;
+            width: 20px;
+            height: 1px;
+            transform: translateY(-50%);
+
+            @include m.sp {
+                width: 16px;
+            }
+
+            @include m.ssp {
+                width: 8px;
+            }
+
+        }
+
+        &::before {
+            right: 100%;
+            margin-right: 1em;
+
+            @include m.ssp {
+                margin-right: 0.5em;
+            }
+        }
+
+        &::after {
+            left: 100%;
+            margin-left: 1em;
+
+            @include m.ssp {
+                margin-right: 0.5em;
+            }
+        }
+    }
+}
+
+.flow-container {
+    max-width: 1000px;
+    margin-left: 8.6rem;
+
+    @include m.tab {
+        max-width: 616px;
+        width: 100%;
+        margin-inline: auto;
+    }
+
+    @include m.sp {
+        max-width: none;
+    }
+
+    .subpage-btn {
+        background-color: #fdfdfd;
+    }
+}
+
+.flow-list {
+    // @include m.tab {
+    //     padding-inline: 160px;
+    // }
+
+    li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        background-color: #fdfdfd;
+        margin-bottom: 72px;
+        padding: 16px 24px;
+
+        @include m.tab {
+            flex-direction: column;
+            align-items: start;
+        }
+
+        @include m.ssp {
+            padding-inline: 16px;
+        }
+
+        &:not(:last-child)::after {
+            position: absolute;
+            content: '';
+            border-top: solid 32px #104F59;
+            border-left: solid 30px transparent;
+            border-right: solid 30px transparent;
+            bottom: -5.6rem;
+            left: 10em;
+
+            @include m.tab {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        &:last-child {
+            margin-bottom: 8rem;
+        }
+
+        .outline {
+            position: relative;
+            width: 40%;
+            padding-left: 24px;
+
+            @include m.tab {
+                width: 100%;
+            }
+
+            &::before {
+                position: absolute;
+                content: '';
+                background-color: #104F59;
+                width: 8px;
+                height: 86px;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+
+                @include m.sp {
+                    height: 70px;
+                }
+            }
+
+            .en {
+                font-family: "orpheuspro";
+                font-weight: 400;
+                font-size: 2.4rem;
+
+                @include m.sp {
+                    font-size: 2rem;
+                }
+            }
+
+            .ja {
+                font-size: 2rem;
+                padding-top: 1rem;
+
+                @include m.sp {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+
+    .detail {
+        width: 60%;
+
+        @include m.tab {
+            width: 100%;
+            padding: 24px 16px 8px 24px;
+        }
+
+        // @include m.sp {
+        //     font-size: 1.4rem;
+        // }
+
+        @include m.ssp {
+            font-size: 1.4rem;
+            padding: 24px 0 8px;
+        }
+    }
+}
+
+
+
+// ---------------------------- order-page Gallery ----------------------------
+
+.order-page-gallery {
+    margin-bottom: 0;
+
+    .section-title-line {
+        h2 {
+            width: 70%;
+        }
+    }
+
+    p {
+        text-align: center;
+
+        @include m.ssp {
+            font-size: 1.4rem;
+        }
+    }
+
+    .two-row {
+        gap: 40px 56px;
+        margin-top: 40px;
+
+        @include m.tab {
+            gap: 24px;
+        }
+
+        // .photo:not(:last-child):not(:nth-last-child(2)) {
+        //     margin-bottom: 4rem;
+        // }
+    }
+}

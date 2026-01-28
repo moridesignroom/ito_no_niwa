@@ -1,0 +1,114 @@
+@use "mixin" as m;
+
+// ---------------------------- about-page-top ----------------------------
+
+.subpage-top {
+    &.about-page {
+        background-image: url(../img/about-top.jpg);
+        background-position-y: -40px;
+
+        @include m.tab {
+            background-image: none;
+
+            &::after {
+                background-image: url(../img/about-top.jpg);
+            }
+        }
+
+        .subpage-title {
+            top: 3vh;
+            // right: 11%;
+            margin-left: 60vw;
+            margin-right: auto;
+
+            @include m.tab {
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+
+// ---------------------------- story ----------------------------
+
+.about-page {
+    h2 {
+        text-align: center;
+        font-size: 2.4rem;
+        color: #104F59;
+        margin-bottom: 40px;
+
+        @include m.sp {
+            font-size: 2rem;
+        }
+
+        @include m.sp {
+            font-size: 1.8rem;
+        }
+    }
+}
+
+.story-wrapper {
+    display: grid;
+    grid-template-columns: 44% 1fr;
+    column-gap: 48px;
+    // justify-content: center;
+    max-width: 1000px;
+    margin-inline: auto;
+    padding-inline: 24px;
+
+    @include m.tab {
+        column-gap: 24px;
+    }
+
+    @include m.sp {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .story-img {
+        // width: 44%;
+        grid-row: 1 / span 2;
+
+        @include m.sp {
+            order: 2;
+            max-width: 400px;
+            margin-block: 16px 40px;
+            padding-inline: 24px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 20px;
+        }
+    }
+
+    .text-inner {
+        grid-column: 2;
+        margin-top: 16px;
+
+        @include m.sp {
+            order: 1;
+            width: 100%;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+    }
+
+    .subpage-btn {
+        align-self: start; // 行いっぱいに伸びるのを防ぐ
+        grid-column: 2;
+        max-width: 275px;
+        width: 75%;
+        margin-left: 40px;
+
+        @include m.sp {
+            order: 3;
+            margin-inline: auto;
+        }
+    }
+}
