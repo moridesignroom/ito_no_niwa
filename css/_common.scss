@@ -107,6 +107,10 @@ header {
     height: 100%;
     padding-inline: 24px;
 
+    @include m.sp {
+        padding-inline: 8px;
+    }
+
     .header-logo {
         width: 126px;
         height: auto;
@@ -560,7 +564,11 @@ footer {
         }
 
         @include m.sp {
-            padding-top: 15px;
+            padding: 16px 16px 0;
+        }
+
+        @include m.ssp {
+            padding-inline: 8px;
         }
     }
 
@@ -587,6 +595,14 @@ footer {
             @include m.tab {
                 height: 100%;
                 margin-bottom: 24px;
+            }
+
+            @include m.sp {
+                gap: 16px;
+            }
+
+            @include m.ssp {
+                gap: 8px;
             }
 
             a,

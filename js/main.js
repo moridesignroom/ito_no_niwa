@@ -180,13 +180,23 @@ document.addEventListener("DOMContentLoaded", () => {
     // SPのみ有効
     const isSP = () => window.innerWidth <= 800;
 
-    const maxMoveRatio = 0.5; // 横移動の最大割合
-    let maxMove = window.innerWidth * maxMoveRatio;
+    // const maxMoveRatio = 0.5; // 横移動の最大割合
+
+    const getMaxMove = () =>
+        mvImg.clientWidth - window.innerWidth;
+
+    let maxMove = 0;
 
     const updateMaxMove = () => {
-        maxMove = window.innerWidth * maxMoveRatio;
+        maxMove = Math.max(getMaxMove(), 0);
     };
     window.addEventListener('resize', updateMaxMove);
+
+    if (mvImg.complete) {
+        updateMaxMove();
+    } else {
+        mvImg.addEventListener('load', updateMaxMove);
+    }
 
     const syncScroll = () => {
         if (!isSP()) return;
@@ -196,8 +206,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // セクションに入っている間だけ動かす
         if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+            const speed = 1.6; //速さ調整
             const progress = Math.min(
-                Math.max(-rect.top / totalScroll, 0),
+                Math.max((-rect.top / totalScroll) * speed, 0),
                 1
             );
 
