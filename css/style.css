@@ -100,6 +100,11 @@ header.open .menu-mask {
   height: 100%;
   padding-inline: 24px;
 }
+@media screen and (max-width: 800px) {
+  .flex-box {
+    padding-inline: 8px;
+  }
+}
 .flex-box .header-logo {
   width: 126px;
   height: auto;
@@ -491,7 +496,12 @@ footer .footer-container {
 }
 @media screen and (max-width: 800px) {
   footer .footer-container {
-    padding-top: 15px;
+    padding: 16px 16px 0;
+  }
+}
+@media screen and (max-width: 420px) {
+  footer .footer-container {
+    padding-inline: 8px;
   }
 }
 footer .footer-inner {
@@ -515,6 +525,16 @@ footer .footer-inner .sns-link {
   footer .footer-inner .sns-link {
     height: 100%;
     margin-bottom: 24px;
+  }
+}
+@media screen and (max-width: 800px) {
+  footer .footer-inner .sns-link {
+    gap: 16px;
+  }
+}
+@media screen and (max-width: 420px) {
+  footer .footer-inner .sns-link {
+    gap: 8px;
   }
 }
 footer .footer-inner .sns-link a,
