@@ -11,9 +11,10 @@ body {
   font-family: "Yu Mincho", "YuMincho", "MS PMincho", serif;
   font-size: 1.6rem;
   color: #043139;
+  margin: 0;
 }
 
-main {
+section:last-of-type {
   margin-bottom: 120px;
 }
 
