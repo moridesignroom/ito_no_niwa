@@ -11,6 +11,14 @@
 
         &::after {
             background-image: url(../img/order-top.jpg);
+
+            @include m.sp {
+                background-position: center;
+            }
+
+            @include m.ssp {
+                background-position-x: -272px;
+            }
         }
     }
 
