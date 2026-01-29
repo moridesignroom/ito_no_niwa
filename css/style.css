@@ -11,6 +11,11 @@ body {
   font-family: "Yu Mincho", "YuMincho", "MS PMincho", serif;
   font-size: 1.6rem;
   color: #043139;
+  margin: 0;
+}
+
+section:last-of-type {
+  margin-bottom: 120px;
 }
 
 a {
@@ -469,7 +474,6 @@ footer {
   position: relative;
   background-color: #104F59;
   height: 140px;
-  margin-top: 120px;
 }
 @media screen and (max-width: 1120px) {
   footer {
