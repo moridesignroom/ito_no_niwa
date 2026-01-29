@@ -1234,6 +1234,16 @@ section {
     background-image: url(../img/order-top.jpg);
   }
 }
+@media screen and (max-width: 1120px) and (max-width: 800px) {
+  .subpage-top.order-page::after {
+    background-position: center;
+  }
+}
+@media screen and (max-width: 1120px) and (max-width: 420px) {
+  .subpage-top.order-page::after {
+    background-position-x: -272px;
+  }
+}
 .subpage-top.order-page .subpage-title {
   flex-direction: row;
   align-items: baseline;
@@ -2187,7 +2197,7 @@ footer.blog-page {
 @media screen and (max-width: 800px) {
   .contact-bg::before {
     top: 674px;
-    height: 460px;
+    height: 500px;
   }
 }
 
