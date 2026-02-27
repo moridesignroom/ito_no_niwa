@@ -1,4 +1,17 @@
 $(function () {
+
+     /*=================================================
+    loading animation
+    ===================================================*/
+    window.addEventListener("load", function () {
+        setTimeout(function () {
+            const loading = document.querySelector(".loading");
+            loading.style.transition = "opacity 1s ease";
+            loading.style.opacity = "0";
+            setTimeout(() => loading.style.display = "none", 1000);
+        }, 6000); // アニメーション終了後
+    });
+    
     /*=================================================
     ハンバーガーメニュー
     ===================================================*/
@@ -259,5 +272,6 @@ document.addEventListener("DOMContentLoaded", () => {
 //     const moveX = scrollY * 0.2;
 //     mvImg.style.transform = `translateX(${-moveX}px)`;
 // });
+
 
 
