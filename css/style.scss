@@ -28,7 +28,7 @@
     align-items: center;
     gap: 20px;
     /* 文字と花の間隔 */
-    animation: glow 2s ease 5s forwards;
+    animation: glow 2s ease 3.5s forwards;
 
     /* ロゴサイズ */
     #logo-svg {
@@ -68,7 +68,7 @@
         stroke-dashoffset: 800;
         opacity: 0;
         animation: drawFlower 2s ease forwards;
-        animation-delay: 3s;
+        animation-delay: 2s;
     }
 
 }
@@ -255,4 +255,5 @@ img {
     margin-top: 48px;
 
 }
+
 
